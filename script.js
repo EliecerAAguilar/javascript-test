@@ -3,16 +3,16 @@ function fibonacci(n) {
 
   for (let i = 2; i <= n; i++) {
     let nextValue = fibonacciArray[i - 1] + fibonacciArray[i - 2];
-    fibonacciArray.push(nextValue);
+    fibonacciArray.push(parseInt(nextValue));
   }
 
   return fibonacciArray;
 }
 
 function generateFibonacci() {
-  let cantidadCartas = parseInt(document.getElementById("numero").value);
+  let cantidadCartas = parseInt(document.getElementById("num").value);
   let fibonacciArray = fibonacci(cantidadCartas);
-
+  
   let cardsContainer = document.getElementById("cards");
   cardsContainer.innerHTML = "";
 
@@ -25,8 +25,8 @@ function generateFibonacci() {
 
     let cardTitle = document.createElement("h5");
     cardTitle.className = "card-title";
-    cardTitle.innerText = fibonacciArray[i];
-
+    cardTitle.innerText = fibonacciArray[i].toString();
+    console.log(fibonacciArray[i].toString());
     cardBody.appendChild(cardTitle);
     card.appendChild(cardBody);
     cardsContainer.appendChild(card);
