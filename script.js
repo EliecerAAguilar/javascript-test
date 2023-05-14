@@ -1,43 +1,42 @@
-/* generar valores de fibonacci dependiendo del numero de elementos que se quiera  */
-
 function fibonacci(n) {
-    let a = 1, b = 0, temp;
-    let fibonacci_array = [];
+  let fibonacciArray = [0, 1];
 
-    while (n >= 0){
-        fibonacci_array.push(parseInt(b));
-        temp = a;
-        a = a + b;
-        b = temp;
-        n--;
+  for (let i = 2; i <= n; i++) {
+    let nextValue = fibonacciArray[i - 1] + fibonacciArray[i - 2];
+    fibonacciArray.push(nextValue);
+  }
 
-    }
-    return fibonacci_array;
+  return fibonacciArray;
 }
 
-function main(){
-    let div_cards = document.getElementById("cards");
-    let cards = "";
-    let cantidad_cartas = parseInt(document.getElementById("numero"));
-    let fibonacci_array = fibonacci(cantidad_cartas);
+function generateFibonacci() {
+  let cantidadCartas = parseInt(document.getElementById("numero").value);
+  let fibonacciArray = fibonacci(cantidadCartas);
 
-    for (let index = 0; index < fibonacci_array.length; index++) {
-        cards += `<div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">${fibonacci_array[index]}</h5>
-                    </div>
-                </div>`;
-    }; 
+  let cardsContainer = document.getElementById("cards");
+  cardsContainer.innerHTML = "";
 
-    div_cards.innerHTML = cards;
+  for (let i = 0; i < fibonacciArray.length; i++) {
+    let card = document.createElement("div");
+    card.className = "card";
 
+    let cardBody = document.createElement("div");
+    cardBody.className = "card-body";
+
+    let cardTitle = document.createElement("h5");
+    cardTitle.className = "card-title";
+    cardTitle.innerText = fibonacciArray[i];
+
+    cardBody.appendChild(cardTitle);
+    card.appendChild(cardBody);
+    cardsContainer.appendChild(card);
+  }
 }
 
-  // Agrega un controlador de eventos para el envío del formulario
-  // El evento se dispara cuando se presiona el botón submit.
-
-
-  document.getElementById('formulario').addEventListener('submit', function(evento) {
-    evento.preventDefault(); // Previene la recarga de la página
-    main(); // Llama a la funci
+// Agregar un controlador de eventos para el envío del formulario
+document
+  .getElementById("miFormulario")
+  .addEventListener("submit", function (evento) {
+    evento.preventDefault(); // Prevenir la recarga de la página
+    generateFibonacci();
   });
