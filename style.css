@@ -31,7 +31,10 @@
     flex-direction: row;
     justify-content: space-evenly;
     margin: 1% 2% 0 0;
-    max-width: 50%;
+    max-width: 37%;
+}
+input{
+    max-width: 40%;
 }
 
 .main-st {
@@ -40,7 +43,7 @@
     border-radius: 5px;
     flex-wrap: wrap;
     width: auto;
-    max-width: 50%;
+    max-width: 37%;
 }
 
 .myForm {
@@ -49,7 +52,7 @@
 }
 
 .btn-cal {
-    margin: 2% 0 0 0;
+    margin: 2% 2% 2% 0;
     background-color: red;
     align-self: flex-end;
     color: azure;
