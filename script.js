@@ -45,19 +45,13 @@ document
    Si el usuario da click en "sí", se debe eliminar la tarjeta, de caso contrario, 
   solamente cerrar la alerta sin realizar ninguna modificación al HTML. */
 
-document.getElementById("cards").addEventListener("click", function (event) {
-  if (event.target.classList.contains("card")) {
+document
+.getElementById("cards")
+.addEventListener("click",
+function(evento){
+    if (evento.target.classList.contains("card")) {
     if (confirm("¿Está seguro de que desea eliminar la tarjeta?")) {
-      event.target.remove();
-    }
-  }
-});
-
-let delete_selected_card = document.getElementById("cards");
-delete_selected_card.addEventListener("click", function (event) {
-  if (event.target.classList.contains("card")) {
-    if (confirm("¿Está seguro de que desea eliminar la tarjeta?")) {
-      event.target.remove();
+      evento.target.remove();
     }
   }
 });
