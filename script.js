@@ -26,7 +26,6 @@ function generateFibonacci() {
 
     cardTitle.innerText = fibonacciArray[i].toString();
 
-    console.log(fibonacciArray[i].toString());
     card.appendChild(cardTitle);
     cardsContainer.appendChild(card);
   }
