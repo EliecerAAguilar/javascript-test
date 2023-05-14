@@ -24,4 +24,20 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         transition: 0.3s;
         border-radius: 5px;
+        flex-wrap: wrap;
+        width:auto;
+        max-width: 50%;
+}
+
+.myForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-cal{
+    margin: 2% 0 0 0;
+    background-color: red;
+    align-self:flex-end;
+    color: azure;
+    font-size: large;
 }
