@@ -6,7 +6,6 @@
     min-width: 10%;
     min-height: auto;
 
-
 }
 
 .card-title {
@@ -21,10 +20,6 @@
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Add some padding inside the card container */
-.card-body {
-    padding: 2% 2%;
-}
 
 #cards {
     display: flex;
