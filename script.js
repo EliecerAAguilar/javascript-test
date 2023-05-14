@@ -12,9 +12,10 @@ function fibonacci(n) {
 function generateFibonacci() {
   let cantidadCartas = parseInt(document.getElementById("num").value);
   let fibonacciArray = fibonacci(cantidadCartas);
-  
+
   let cardsContainer = document.getElementById("cards");
   cardsContainer.innerHTML = "";
+  
 
   for (let i = 0; i < fibonacciArray.length; i++) {
     let card = document.createElement("div");
@@ -31,6 +32,8 @@ function generateFibonacci() {
     card.appendChild(cardBody);
     cardsContainer.appendChild(card);
   }
+
+
 }
 
 // Agregar un controlador de eventos para el envío del formulario
@@ -40,3 +43,17 @@ document
     evento.preventDefault(); // Prevenir la recarga de la página
     generateFibonacci();
   });
+
+    /* script, que cuando se le de click a las tarjetas generadas en la parte 1, 
+  levante una alerta consultándole al usuario si desea eliminar dicha tarjeta.
+   Si el usuario da click en "sí", se debe eliminar la tarjeta, de caso contrario, 
+  solamente cerrar la alerta sin realizar ninguna modificación al HTML. */
+
+  document
+  .getElementById("cards")
+  .addEventListener("click", function (event) {
+    if (event.target.classList.contains("card")) {
+      if (confirm("¿Está seguro de que desea eliminar el elemento?")) {
+        event.target.remove();
+      }
+  }});
