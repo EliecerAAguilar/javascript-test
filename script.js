@@ -20,15 +20,14 @@ function generateFibonacci() {
     let card = document.createElement("div");
     card.className = "card";
 
-    let cardBody = document.createElement("div");
-    cardBody.className = "card-body";
 
     let cardTitle = document.createElement("h5");
     cardTitle.className = "card-title";
+
     cardTitle.innerText = fibonacciArray[i].toString();
+
     console.log(fibonacciArray[i].toString());
-    cardBody.appendChild(cardTitle);
-    card.appendChild(cardBody);
+    card.appendChild(cardTitle);
     cardsContainer.appendChild(card);
   }
 }
@@ -47,6 +46,15 @@ document
   solamente cerrar la alerta sin realizar ninguna modificación al HTML. */
 
 document.getElementById("cards").addEventListener("click", function (event) {
+  if (event.target.classList.contains("card")) {
+    if (confirm("¿Está seguro de que desea eliminar la tarjeta?")) {
+      event.target.remove();
+    }
+  }
+});
+
+let delete_selected_card = document.getElementById("cards");
+delete_selected_card.addEventListener("click", function (event) {
   if (event.target.classList.contains("card")) {
     if (confirm("¿Está seguro de que desea eliminar la tarjeta?")) {
       event.target.remove();
